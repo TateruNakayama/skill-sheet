@@ -5,6 +5,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { StarIcon } from "lucide-react"
 import { motion } from 'framer-motion';
 
+interface Skill {
+  name: string;
+  years: number;
+  level: number;
+}
+
 const skills = [
   { name: 'JavaScript', years: 5, level: 4 },
   { name: 'Python', years: 3, level: 3 },
@@ -13,7 +19,7 @@ const skills = [
   { name: 'TypeScript', years: 2, level: 3 },
 ];
 
-const StarRating = ({ level }) => {
+const StarRating: React.FC<{ level: number }> = ({ level }) => {
   return (
     <div className="flex">
       {[...Array(5)].map((_, i) => (
@@ -26,7 +32,7 @@ const StarRating = ({ level }) => {
   );
 };
 
-const SkillCard = ({ skill, index }) => (
+const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) => (
   <motion.div
     initial={{ opacity: 0, y: 50 }}
     animate={{ opacity: 1, y: 0 }}
@@ -46,7 +52,7 @@ const SkillCard = ({ skill, index }) => (
   </motion.div>
 );
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <div className="container mx-auto p-4">
       <motion.div
@@ -87,3 +93,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
