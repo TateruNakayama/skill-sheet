@@ -111,7 +111,7 @@ const Home: React.FC = () => {
           </CardHeader>
           <CardContent>
             <p className="text-base pb-4">
-              実務経験1年3か月の弱弱エンジニアです。ですが自己学習は2020年7月からずっと続けています。
+              実務経験1年3か月のエンジニアです。ですが自己学習は2020年7月からずっと続けています。
             </p>
             <p className="text-base">
               このサイトは、GitHub Pagesで公開しています！ 便利！！ ( Next.js , shadcn/ui )
