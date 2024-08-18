@@ -7,16 +7,21 @@ import { motion } from "framer-motion";
 
 interface Skill {
   name: string;
-  years: number;
+  workYears: number;
+  workMonths: number;
+  studyYears: number;
+  studyMonths: number;
   level: number;
+  detail: string;
 }
 
 const skills = [
-  { name: "JavaScript", years: 5, level: 4 },
-  { name: "Python", years: 3, level: 3 },
-  { name: "Java", years: 2, level: 2 },
-  { name: "C++", years: 1, level: 1 },
-  { name: "TypeScript", years: 2, level: 3 },
+  { name: "PHP", workYears: 1, workMonths: 3, studyYears: 0, studyMonths: 0, level: 5, detail: "Laravel"},
+  { name: "Python", workYears: 0, workMonths: 0, studyYears: 2, studyMonths: 8, level: 5, detail: "Django / 深層学習"},
+  { name: "Docker", workYears: 1, workMonths: 3, studyYears: 2, studyMonths: 8, level: 5, detail: ""},
+  { name: "React", workYears: 1, workMonths: 3, studyYears: 0, studyMonths: 0, level: 3, detail: "Next.js"},
+  { name: "Jenkins", workYears: 1, workMonths: 3, studyYears: 0, studyMonths: 0, level: 3, detail: "CI/CD パイプライン"},
+  { name: "TypeScript", workYears: 0, workMonths: 5, studyYears: 0, studyMonths: 10, level: 2, detail: ""},
 ];
 
 const StarRating: React.FC<{ level: number }> = ({ level }) => {
@@ -45,13 +50,29 @@ const SkillCard: React.FC<{ skill: Skill; index: number }> = ({
   >
     <Card className="mb-4">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium">{skill.name}</CardTitle>
+        <CardTitle className="text-lg font-medium">{skill.name}</CardTitle>
         <StarRating level={skill.level} />
       </CardHeader>
       <CardContent>
-        <div className="text-xs text-muted-foreground">
-          経験年数: {skill.years}年
-        </div>
+        {(skill.workYears > 0 || skill.workMonths > 0) && (
+          <div className="text-sm text-muted-foreground pb-1">
+            実務経験: 
+            {skill.workYears > 0 && `${skill.workYears}年`}
+            {skill.workMonths > 0 && `${skill.workMonths}か月`}
+          </div>
+        )}
+        {(skill.studyYears > 0 || skill.studyMonths > 0) && (
+          <div className="text-sm text-muted-foreground pb-1">
+            自己学習: 
+            {skill.studyYears > 0 && `${skill.studyYears}年`}
+            {skill.studyMonths > 0 && `${skill.studyMonths}か月`}
+          </div>
+        )}
+        {skill.detail && (
+          <div className="text-sm text-muted-foreground">
+            {skill.detail}
+          </div>
+        )}
       </CardContent>
     </Card>
   </motion.div>
