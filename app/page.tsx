@@ -19,7 +19,7 @@ const skills = [
   { name: "PHP", workYears: 1, workMonths: 3, studyYears: 0, studyMonths: 0, level: 5, detail: "Laravel"},
   { name: "Python", workYears: 0, workMonths: 0, studyYears: 2, studyMonths: 8, level: 5, detail: "Django / 深層学習"},
   { name: "Docker", workYears: 1, workMonths: 3, studyYears: 2, studyMonths: 8, level: 5, detail: ""},
-  { name: "React", workYears: 1, workMonths: 3, studyYears: 0, studyMonths: 0, level: 3, detail: "Next.js"},
+  { name: "React", workYears: 0, workMonths: 5, studyYears: 2, studyMonths: 0, level: 3, detail: "最近はNext.js"},
   { name: "Jenkins", workYears: 1, workMonths: 3, studyYears: 0, studyMonths: 0, level: 3, detail: "CI/CD パイプライン"},
   { name: "TypeScript", workYears: 0, workMonths: 5, studyYears: 0, studyMonths: 10, level: 2, detail: ""},
 ];
