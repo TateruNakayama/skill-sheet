@@ -90,7 +90,7 @@ const Home: React.FC = () => {
           <CardHeader className="flex flex-row items-center space-x-4">
             <Avatar>
               <AvatarImage
-                src="/api/placeholder/32/32"
+                src="myAvatar.png"
                 alt="プロフィール画像"
               />
               <AvatarFallback>JP</AvatarFallback>
@@ -111,7 +111,7 @@ const Home: React.FC = () => {
           </CardHeader>
           <CardContent>
             <p className="text-base pb-4">
-              実務経験1年3か月の、あまあまエンジニアです。ですが自己学習は2020年7月からずっと続けています。
+              実務経験1年3か月の弱弱エンジニアです。ですが自己学習は2020年7月からずっと続けています。
             </p>
             <p className="text-base">
               このサイトは、GitHub Pagesで公開しています！ 便利！！ ( Next.js , shadcn/ui )
