@@ -1,9 +1,9 @@
 "use client";
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { StarIcon } from "lucide-react"
-import { motion } from 'framer-motion';
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { StarIcon, Github } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface Skill {
   name: string;
@@ -12,11 +12,11 @@ interface Skill {
 }
 
 const skills = [
-  { name: 'JavaScript', years: 5, level: 4 },
-  { name: 'Python', years: 3, level: 3 },
-  { name: 'Java', years: 2, level: 2 },
-  { name: 'C++', years: 1, level: 1 },
-  { name: 'TypeScript', years: 2, level: 3 },
+  { name: "JavaScript", years: 5, level: 4 },
+  { name: "Python", years: 3, level: 3 },
+  { name: "Java", years: 2, level: 2 },
+  { name: "C++", years: 1, level: 1 },
+  { name: "TypeScript", years: 2, level: 3 },
 ];
 
 const StarRating: React.FC<{ level: number }> = ({ level }) => {
@@ -25,14 +25,19 @@ const StarRating: React.FC<{ level: number }> = ({ level }) => {
       {[...Array(5)].map((_, i) => (
         <StarIcon
           key={i}
-          className={`w-4 h-4 ${i < level ? 'text-yellow-400' : 'text-gray-300'}`}
+          className={`w-4 h-4 ${
+            i < level ? "text-yellow-400" : "text-gray-300"
+          }`}
         />
       ))}
     </div>
   );
 };
 
-const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) => (
+const SkillCard: React.FC<{ skill: Skill; index: number }> = ({
+  skill,
+  index,
+}) => (
   <motion.div
     initial={{ opacity: 0, y: 50 }}
     animate={{ opacity: 1, y: 0 }}
@@ -63,35 +68,52 @@ const Home: React.FC = () => {
         <Card className="mb-8">
           <CardHeader className="flex flex-row items-center space-x-4">
             <Avatar>
-              <AvatarImage src="/api/placeholder/32/32" alt="プロフィール画像" />
+              <AvatarImage
+                src="/api/placeholder/32/32"
+                alt="プロフィール画像"
+              />
               <AvatarFallback>JP</AvatarFallback>
             </Avatar>
-            <div>
-              <CardTitle>鈴木 太郎</CardTitle>
-              <p className="text-sm text-muted-foreground">フルスタックエンジニア</p>
+            <div className="text-center md:text-left">
+              <CardTitle className="text-3xl font-bold">中山 建</CardTitle>
+              <p className="text-lg opacity-90">バックエンドエンジニア</p>
+              <a
+                href="https://github.com/TateruNakayama"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center mt-2 hover:text-gray-500 transition-colors duration-200"
+              >
+                <Github className="mr-2" size={20} />
+                https://github.com/TateruNakayama
+              </a>
             </div>
           </CardHeader>
           <CardContent>
-            <p className="text-sm">
-              5年以上のWeb開発経験を持つエンジニアです。フロントエンドからバックエンドまで幅広い技術を扱えます。
+            <p className="text-base pb-4">
+              実務経験1年3か月の、あまあまエンジニアです。ですが自己学習は2020年7月からずっと続けています。
+            </p>
+            <p className="text-base">
+              このサイトは、GitHub Pagesで公開しています！ 便利！！ ( Next.js , shadcn/ui )
             </p>
           </CardContent>
         </Card>
       </motion.div>
 
       <motion.h2
-        className="text-2xl font-bold mb-4"
+        className="text-3xl font-bold mb-6 text-gray-800"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         Skill
       </motion.h2>
-      {skills.map((skill, index) => (
-        <SkillCard key={index} skill={skill} index={index} />
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {skills.map((skill, index) => (
+          <SkillCard key={index} skill={skill} index={index} />
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default Home;
